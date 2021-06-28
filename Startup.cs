@@ -1,3 +1,4 @@
+using System.Linq;
 using BaltaShop.Products.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,18 +29,20 @@ namespace BaltaShop.Products
                     Title = "BaltaShop.Products",
                     Version = "v1"
                 });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();                
-            }
-            
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BaltaShop.Products v1"));
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BaltaShop.Products v1");
+            });
 
             app.UseHttpsRedirection();
 
