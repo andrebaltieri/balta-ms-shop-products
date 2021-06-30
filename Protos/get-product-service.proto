@@ -1,0 +1,27 @@
+﻿// Protos/get-product-service.proto
+
+syntax = "proto3";
+
+option csharp_namespace = "BaltaShop.Products";
+
+package BaltaShop.Products;
+
+service ProductService {
+	rpc GetProduct (GetProductRequest) returns (GetProductReply);
+}
+
+message GetProductRequest {
+	int32 id = 1;
+}
+
+message GetProductReply {
+	int32 Id = 1;
+	string Title = 2;
+	string Summary = 3;
+	string Description = 4;
+	double Price = 5;
+	int32 QuantityOnHand = 6;
+	string CreateDate = 7;
+	string LastUpdateDate = 8;
+	bool Active = 9;
+}

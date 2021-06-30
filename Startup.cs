@@ -20,8 +20,8 @@ namespace BaltaShop.Products
         {
 
             services.AddControllers();
-            services.AddDbContext<ShopDataContext>(x =>
-                x.UseInMemoryDatabase("BaltaShop"));
+            services.AddGrpc();
+            services.AddDbContext<ShopDataContext>(x => x.UseInMemoryDatabase("BaltaShop"));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -52,6 +52,7 @@ namespace BaltaShop.Products
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<Services.ProductService>();
                 endpoints.MapControllers();
             });
         }
