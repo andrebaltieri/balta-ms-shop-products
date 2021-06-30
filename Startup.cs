@@ -18,7 +18,6 @@ namespace BaltaShop.Products
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddGrpc();
             services.AddDbContext<ShopDataContext>(x => x.UseInMemoryDatabase("BaltaShop"));
