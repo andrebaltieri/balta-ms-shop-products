@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'balta-ms-shop-products'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_224e626c12774a7eb6f5795bdfe4df11 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4826eae92e8b4ffba56e7672f04cbffe }}
         package: .
